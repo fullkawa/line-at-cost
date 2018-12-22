@@ -1,6 +1,6 @@
 {
-    "name": "furukawa/line-at-cost",
-    "description": "Line@ cost estimating library",
+    "name": "fullkawa/line-at-cost",
+    "description": "LINE@ cost estimating library",
     "version": "1.0.0",
     "type": "library",
     "license": "MIT",
