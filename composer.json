@@ -1,0 +1,13 @@
+{
+    "name": "furukawa/line-at-cost",
+    "description": "Line@ cost estimating library",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Y.Furukawa",
+            "email": "fullkawa@gmail.com"
+        }
+    ],
+    "require": {}
+}
