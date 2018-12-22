@@ -9,5 +9,15 @@
             "email": "fullkawa@gmail.com"
         }
     ],
-    "require": {}
+    "require": {},
+    "autoload" : {
+        "psr-4" : {
+            "LineAtCost\\" : "src/LineAtCost"
+        }
+    },
+    "autoload-dev" : {
+        "psr-4" : {
+            "Tests\\" : "tests/"
+        }
+    },
 }
