@@ -7,11 +7,13 @@ namespace LineAtCost\Plan;
  *
  * @author furukawa
  */
-class Plan2016 extends Plan
+abstract class Plan2016 extends Plan
 {
-    public function estimate($usage)
+    private $amount; // 月額利用料金(税別)
+
+    public function estimate($usages)
     {
-        return 0;
+        return $this->amount;
     }
 }
 

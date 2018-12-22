@@ -17,7 +17,7 @@ class Estimator
      */
     static public function estimate($plan, $usages = [])
     {
-        return 0;
+        return $plan->estimate($usages);
     }
 }
 

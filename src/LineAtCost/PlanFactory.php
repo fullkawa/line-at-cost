@@ -1,6 +1,8 @@
 <?php
 namespace LineAtCost;
 
+use LineAtCost\Plan;
+
 /**
  * Planインスタンス ファクトリ
  *
@@ -39,7 +41,7 @@ class PlanFactory
      *
      * @param int $target 特定の料金体系に限定する場合、TARGET_*を指定する。
      */
-    public function __construct($target = PlanFactory::TARGET_2016)
+    public function __construct($target = self::TARGET_2016)
     {
         $this->target_base = $target;
     }
@@ -51,6 +53,27 @@ class PlanFactory
 
     public function getInstance($plan_id)
     {
+        if ($plan_id < self::TARGET_2016) {
+            $plan_id += $this->target_base;
+        }
+        switch($plan_id) {
+            case self::PLAN2016FREE_ID:
+                return new Plan\Plan2016Free();
+            case self::PLAN2016BASIC_ID:
+                return new Plan\Plan2016Basic();
+            case self::PLAN2016PRO_ID:
+                return new Plan\Plan2016Pro();
+            case self::PLAN2016PRO2_ID:
+                return new Plan\Plan2016Pro2();
+            case self::PLAN2016DEVELOPER_ID:
+                return new Plan\Plan2016Developer();
+            case self::PLAN2019FREE_ID:
+                return new Plan\Plan2019Free();
+            case self::PLAN2019LIGHT_ID:
+                return new Plan\Plan2019Light();
+            case self::PLAN2019STANDARD_ID:
+                return new Plan\Plan2019Standard();
+        }
         return null;
     }
 }

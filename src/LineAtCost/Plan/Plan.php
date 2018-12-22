@@ -11,6 +11,6 @@ namespace LineAtCost\Plan;
  */
 abstract class Plan
 {
-    abstract public function estimate($usage);
+    abstract public function estimate($usages);
 }
 

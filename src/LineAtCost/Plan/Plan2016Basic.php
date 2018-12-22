@@ -9,5 +9,9 @@ namespace LineAtCost\Plan;
  */
 class Plan2016Basic extends Plan2016
 {
+    public function estimate($usages)
+    {
+        return 5000; // 税込5,400円
+    }
 }
 

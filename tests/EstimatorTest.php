@@ -2,7 +2,6 @@
 
 use LineAtCost\Estimator;
 use LineAtCost\PlanFactory;
-use LineAtCost\Exception\InvalidUsageException;
 
 /**
  * Estimator test case.
@@ -60,21 +59,21 @@ class EstimatorTest extends PHPUnit_Framework_TestCase
     {
         $plan = $this->factory->getInstance(PlanFactory::PLAN2016BASIC_ID);
         $cost = Estimator::estimate($plan);
-        $this->assertEquals(5400, $cost);
+        $this->assertEquals(5000, $cost);
     }
 
     public function testEstimate_2016Pro()
     {
         $plan = $this->factory->getInstance(PlanFactory::PLAN2016PRO_ID);
         $cost = Estimator::estimate($plan);
-        $this->assertEquals(21600, $cost);
+        $this->assertEquals(20000, $cost);
     }
 
     public function testEstimate_2016Pro2()
     {
         $plan = $this->factory->getInstance(PlanFactory::PLAN2016PRO2_ID);
         $cost = Estimator::estimate($plan);
-        $this->assertEquals(32400, $cost);
+        $this->assertEquals(30000, $cost);
     }
 
     public function testEstimate_2016Developer()
@@ -85,7 +84,7 @@ class EstimatorTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException InvalidUsageException
+     * @expectedException LineAtCost\Exception\InvalidUsageException
      */
     public function testEstimate_2019Free_no_usages()
     {
@@ -94,7 +93,7 @@ class EstimatorTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException InvalidUsageException
+     * @expectedException LineAtCost\Exception\InvalidUsageException
      */
     public function testEstimate_2019Light_no_message_count()
     {
@@ -104,7 +103,7 @@ class EstimatorTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException InvalidUsageException
+     * @expectedException LineAtCost\Exception\InvalidUsageException
      */
     public function testEstimate_2019Free_over_limit()
     {

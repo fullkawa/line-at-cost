@@ -67,52 +67,52 @@ class PlanFactoryTest extends PHPUnit_Framework_TestCase
     public function testGetInstance_2016Free_const()
     {
         $instance = $this->planFactory->getInstance(PlanFactory::PLAN2016FREE_ID);
-        $this->assertEquals('Plan2016Free', get_class($instance));
+        $this->assertEquals('LineAtCost\Plan\Plan2016Free', get_class($instance));
     }
 
     public function testGetInstance_2016Basic_value()
     {
         $instance = $this->planFactory->getInstance(2);
-        $this->assertEquals('Plan2016Basic', get_class($instance));
+        $this->assertEquals('LineAtCost\Plan\Plan2016Basic', get_class($instance));
     }
 
     public function testGetInstance_2016Pro_value2()
     {
         $instance = $this->planFactory->getInstance(13);
-        $this->assertEquals('Plan2016Pro', get_class($instance));
+        $this->assertEquals('LineAtCost\Plan\Plan2016Pro', get_class($instance));
     }
 
     public function testGetInstance_2016Pro2_all()
     {
         $planFactory = new PlanFactory(PlanFactory::TARGET_ALL);
         $instance = $planFactory->getInstance(PlanFactory::PLAN2016PRO2_ID);
-        $this->assertEquals('Plan2016Pro2', get_class($instance));
+        $this->assertEquals('LineAtCost\Plan\Plan2016Pro2', get_class($instance));
     }
 
     public function testGetInstance_2016Developer()
     {
         $instance = $this->planFactory->getInstance(9);
-        $this->assertEquals('Plan2016Developer', get_class($instance));
+        $this->assertEquals('LineAtCost\Plan\Plan2016Developer', get_class($instance));
     }
 
     public function testGetInstance_2019Free()
     {
         $instance = $this->planFactory->getInstance(21);
-        $this->assertEquals('Plan2019Free', get_class($instance));
+        $this->assertEquals('LineAtCost\Plan\Plan2019Free', get_class($instance));
     }
 
     public function testGetInstance_2019Light_target()
     {
         $planFactory = new PlanFactory(PlanFactory::TARGET_2019);
         $instance = $planFactory->getInstance(PlanFactory::PLAN2019LIGHT_ID);
-        $this->assertEquals('Plan2019Light', get_class($instance));
+        $this->assertEquals('LineAtCost\Plan\Plan2019Light', get_class($instance));
     }
 
     public function testGetInstance_2019Standard_target()
     {
         $planFactory = new PlanFactory(PlanFactory::TARGET_2019);
         $instance = $planFactory->getInstance(3);
-        $this->assertEquals('Plan2019Standard', get_class($instance));
+        $this->assertEquals('LineAtCost\Plan\Plan2019Standard', get_class($instance));
     }
 }
 
