@@ -9,10 +9,11 @@ namespace LineAtCost;
 class Estimator
 {
     /**
-     * 月額料金を見積もる
+     * 月額料金(税別)を見積もる
+     * (プレミアムIDオプション等の年間利用料は含まない)
      *
      * @param $plan 料金プラン
-     * @param $usages  利用状況: 利用オプション・メッセージ配信数など。詳細は各Planクラスのコメント参照
+     * @param $usages  利用状況: メッセージ配信数など。詳細は各Planクラスのコメント参照
      */
     static public function estimate($plan, $usages = [])
     {

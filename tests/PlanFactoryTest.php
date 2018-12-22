@@ -1,5 +1,7 @@
 <?php
 
+use LineAtCost\PlanFactory;
+
 /**
  * PlanFactory test case.
  */
@@ -19,9 +21,7 @@ class PlanFactoryTest extends PHPUnit_Framework_TestCase
     {
         parent::setUp();
 
-        // TODO Auto-generated PlanFactoryTest::setUp()
-
-        $this->planFactory = new LineAtCost\PlanFactory(/* parameters */);
+        $this->planFactory = new PlanFactory();
     }
 
     /**
@@ -29,7 +29,6 @@ class PlanFactoryTest extends PHPUnit_Framework_TestCase
      */
     protected function tearDown()
     {
-        // TODO Auto-generated PlanFactoryTest::tearDown()
         $this->planFactory = null;
 
         parent::tearDown();
@@ -40,7 +39,6 @@ class PlanFactoryTest extends PHPUnit_Framework_TestCase
      */
     public function __construct()
     {
-        // TODO Auto-generated constructor
     }
 
     /**
@@ -48,21 +46,73 @@ class PlanFactoryTest extends PHPUnit_Framework_TestCase
      */
     public function test__construct()
     {
-        // TODO Auto-generated PlanFactoryTest->test__construct()
-        $this->markTestIncomplete("__construct test not implemented");
+        $this->assertEquals(PlanFactory::TARGET_2016, $this->planFactory->getTargetBase());
+    }
 
-        $this->planFactory->__construct(/* parameters */);
+    public function test__construct_param()
+    {
+        $planFactory = new PlanFactory(PlanFactory::PLAN2016BASIC_ID);
+        $this->assertEquals(PlanFactory::PLAN2016BASIC_ID, $planFactory->getTargetBase());
     }
 
     /**
      * Tests PlanFactory->getInstance()
      */
-    public function testGetInstance()
+    public function testGetInstance_invalid()
     {
-        // TODO Auto-generated PlanFactoryTest->testGetInstance()
-        $this->markTestIncomplete("getInstance test not implemented");
+        $instance = $this->planFactory->getInstance(99);
+        $this->assertNull($instance);
+    }
 
-        $this->planFactory->getInstance(/* parameters */);
+    public function testGetInstance_2016Free_const()
+    {
+        $instance = $this->planFactory->getInstance(PlanFactory::PLAN2016FREE_ID);
+        $this->assertEquals('Plan2016Free', get_class($instance));
+    }
+
+    public function testGetInstance_2016Basic_value()
+    {
+        $instance = $this->planFactory->getInstance(2);
+        $this->assertEquals('Plan2016Basic', get_class($instance));
+    }
+
+    public function testGetInstance_2016Pro_value2()
+    {
+        $instance = $this->planFactory->getInstance(13);
+        $this->assertEquals('Plan2016Pro', get_class($instance));
+    }
+
+    public function testGetInstance_2016Pro2_all()
+    {
+        $planFactory = new PlanFactory(PlanFactory::TARGET_ALL);
+        $instance = $planFactory->getInstance(PlanFactory::PLAN2016PRO2_ID);
+        $this->assertEquals('Plan2016Pro2', get_class($instance));
+    }
+
+    public function testGetInstance_2016Developer()
+    {
+        $instance = $this->planFactory->getInstance(9);
+        $this->assertEquals('Plan2016Developer', get_class($instance));
+    }
+
+    public function testGetInstance_2019Free()
+    {
+        $instance = $this->planFactory->getInstance(21);
+        $this->assertEquals('Plan2019Free', get_class($instance));
+    }
+
+    public function testGetInstance_2019Light_target()
+    {
+        $planFactory = new PlanFactory(PlanFactory::TARGET_2019);
+        $instance = $planFactory->getInstance(PlanFactory::PLAN2019LIGHT_ID);
+        $this->assertEquals('Plan2019Light', get_class($instance));
+    }
+
+    public function testGetInstance_2019Standard_target()
+    {
+        $planFactory = new PlanFactory(PlanFactory::TARGET_2019);
+        $instance = $planFactory->getInstance(3);
+        $this->assertEquals('Plan2019Standard', get_class($instance));
     }
 }
 

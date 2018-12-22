@@ -44,6 +44,11 @@ class PlanFactory
         $this->target_base = $target;
     }
 
+    public function getTargetBase()
+    {
+        return $this->target_base;
+    }
+
     public function getInstance($plan_id)
     {
         return null;
