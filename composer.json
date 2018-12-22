@@ -27,7 +27,7 @@
     },
     "scripts" : {
         "test": [
-            "vendor/phpunit/phpunit/phpunit tests",
+            "vendor/phpunit/phpunit/phpunit tests"
         ]
     }
 }
